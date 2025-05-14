@@ -71,8 +71,7 @@ const optionSession = {
 
 
 
-
-//  const mongodb_url = "mongodb://127.0.0.1:27017/wanderlust"
+//   const mongodb_url = "mongodb://127.0.0.1:27017/wanderlust"
 
 
 
@@ -128,6 +127,7 @@ app.use((req,res,next)=>{
 })
 
 
+
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
@@ -145,6 +145,7 @@ app.all(/.*/,(req,res,next)=>{
 app.use((err,req,res,next)=>{
     let {statuscode = 500, message = "Something Went wrong!"} = err;
     // res.status(statuscode).send(message);
+    // console.log(err);
     
     res.render("listings/error.ejs",{message});
 })
